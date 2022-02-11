@@ -1,0 +1,29 @@
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+file(GLOB_RECURSE PROJECT_SRCS ${PROJECT_SOURCE_DIR}/src/*.cpp)
+
+set(MAIN_DIR ${PROJECT_SOURCE_DIR}/src/main)
+
+set(EXTERNAL_LIB_DIR ${PROJECT_SOURCE_DIR}/lib)
+set(DRIVERS_DIR ${PROJECT_SOURCE_DIR}/src/drivers)
+set(LIBS_DIR ${PROJECT_SOURCE_DIR}/src/libs)
+set(MODULES_DIR ${PROJECT_SOURCE_DIR}/src/modules)
+
+add_library(spdlog INTERFACE)
+
+target_include_directories(
+    spdlog
+    INTERFACE
+    ${EXTERNAL_LIB_DIR}
+)
+
+# find_package(Threads)
+
+include_directories(${DRIVERS_DIR} ${LIBS_DIR} ${MODULES_DIR} ${EXTERNAL_LIB_DIR})
+
+add_executable(MyCppTemplate ${MAIN_DIR}/main.cpp ${PROJECT_SRCS})
+
+target_link_libraries(MyCppTemplate
+    spdlog
+)
