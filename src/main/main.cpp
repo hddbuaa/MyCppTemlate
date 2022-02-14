@@ -1,6 +1,9 @@
 # include <iostream>
 
+# include <fstream>
+# include <iomanip>
 # include "spdlog/spdlog.h"
+# include "yaml-cpp/yaml.h"
 
 # include "driver_test.h"
 
@@ -17,4 +20,7 @@ int main(int, char**) {
     //SPDLOG_ERROR(...)
     //SPDLOG_CRITICAL(...)
 
+    YAML::Node ppmRangeYaml;
+    std::ofstream fout("../config/null.yaml");
+    fout << ppmRangeYaml;
 }
