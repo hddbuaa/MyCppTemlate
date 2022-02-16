@@ -12,7 +12,7 @@ int main(int, char**) {
     DriverTest driverTest;
     driverTest.Output();
 
-    // spdlog::info("Welcome to spdlog!");
+    spdlog::info("Welcome to spdlog!");
     SPDLOG_INFO("Welcome to spdlog!");
     //SPDLOG_DEBUG(...)
     //SPDLOG_INFO(...)
